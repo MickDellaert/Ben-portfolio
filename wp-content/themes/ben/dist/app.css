@@ -1,3 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  background-color: wheat;
+  margin: 0;
+  padding: 0;
+  background-color: red;
+  height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+}
+
+.wp-image-268 {
+  position: absolute;
+  z-index: -10;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100vh !important;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.home-container {
+  height: 100vh;
+}
+
+.nav {
+  z-index: 10;
+  position: fixed;
+  width: 100%;
+  padding: 40px;
+}
+.nav .burger-btn {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  background-color: aqua;
+  display: flex;
+  justify-content: flex-end;
+}
+.nav .burger-btn .burger-lines {
+  position: absolute;
+  top: 20px;
+  height: 2px;
+  width: 40px;
+  background-color: black;
+}
+.nav .burger-btn .burger-lines::before {
+  position: absolute;
+  content: "";
+  top: -20px;
+  background-color: inherit;
+  height: 2px;
+  width: 40px;
+}
+.nav .burger-btn .burger-lines::after {
+  position: absolute;
+  content: "";
+  top: 20px;
+  background-color: inherit;
+  height: 2px;
+  width: 40px;
+}
+.nav #menu-top-nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  list-style-type: none;
+  margin: 0px;
+}
+.nav #menu-top-nav li:first-child {
+  margin-right: auto;
 }

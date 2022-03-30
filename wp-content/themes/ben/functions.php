@@ -6,7 +6,7 @@ function scripts()
     wp_enqueue_style('ben_style');
 
     wp_enqueue_script('jquery');
-    
+
     wp_register_script('ben_js', get_template_directory_uri() . './dist/app.js', array(), false, true);
     wp_enqueue_script('ben_js');
 }
@@ -48,4 +48,11 @@ register_nav_menus(
 remove_action('wp_enqueue_scripts', 'wp_enqueue_global_styles');
 remove_action('wp_footer', 'wp_enqueue_global_styles', 1);
 
-remove_filter('the_content', 'wpautop');
+
+function smartwp_remove_wp_block_library_css(){
+    wp_dequeue_style( 'wp-block-library' );
+    wp_dequeue_style( 'wp-block-library-theme' );
+    wp_dequeue_style( 'wc-blocks-style' ); // Remove WooCommerce block CSS
+} 
+add_action( 'wp_enqueue_scripts', 'smartwp_remove_wp_block_library_css', 100 );
+// remove_filter('the_content', 'wpautop');

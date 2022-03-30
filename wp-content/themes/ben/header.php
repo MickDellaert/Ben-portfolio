@@ -15,8 +15,8 @@
 
         <header>
             <nav class="nav">
-                <div class="nav__burger-btn">
-                    <div class="nav__burger"></div>
+                <div class="burger-btn">
+                    <div class="burger-lines"></div>
                 </div>
                 <?php wp_nav_menu(
 

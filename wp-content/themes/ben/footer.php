@@ -1,7 +1,7 @@
 <?php wp_footer();?>
 </div>
 <footer>
-<p>Benjamin Jordens - copyright 2020 - All Rights Reserved</p>
+    <p>All Rights Reserved - Benjamin Jordens - 2022</p>
 </footer>
 </body>
 </html>

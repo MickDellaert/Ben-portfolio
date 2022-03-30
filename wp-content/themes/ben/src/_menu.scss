@@ -1,0 +1,57 @@
+.nav {
+  z-index: 10;
+  position: fixed;
+  width: 100%;
+  padding: 40px;
+
+
+  .burger-btn {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+
+    background-color: aqua;
+    display: flex;
+    justify-content: flex-end;
+
+    .burger-lines {
+      position: absolute;
+      top: 20px;
+      height: 2px;
+      width: 40px;
+      background-color: black;
+
+      &::before {
+        position: absolute;
+        content: "";
+        top: -20px;
+        background-color: inherit;
+        height: 2px;
+        width: 40px;
+      }
+
+      &::after {
+        position: absolute;
+        content: "";
+        top: 20px;
+        background-color: inherit;
+        height: 2px;
+        width: 40px;
+      }
+    }
+  }
+
+  #menu-top-nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    list-style-type: none;
+    margin: 0px;
+
+    li {
+      &:first-child {
+        margin-right: auto;
+      }
+    }
+  }
+}
