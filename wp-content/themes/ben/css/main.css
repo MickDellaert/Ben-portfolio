@@ -1,30 +1,82 @@
-body{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond&family=Lato:wght@700&family=Lora&family=Source+Serif+Pro&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-header{
-    background-color: aqua;
-    width: 100%;
-    height: 200px;
+.container {
+  margin: auto;
+
+  /* width: 95%; */
+  margin: 200px 20px 50px 20px;
 }
 
-#menu-top-nav{
-    display: flex;
-    justify-content: flex-end;
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 20;
+}
+#menu-top-nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  list-style-type: none;
+  padding: 40px;
+  margin: 0px;
 }
 
-#menu-top-nav li{
-    list-style-type: none;
+/* .menu-top-nav-container{
+  background-color: aqua;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  height: 200px;
+} */
+
+a {
+  text-decoration: none;
 }
 
-#menu-item-23{
-    margin-right: auto;
+h1 {
+  padding: 20px;
 }
 
-ul{
-    margin: 0;
-    padding: 0;
+h2 {
+  text-align: center;
+  margin-bottom: 140px;
+  font-size: 3.4rem;
+  color: dimgrey;
+  font-family: "EB Garamond", serif;
 }
 
+a {
+  font-family: "Lato", sans-serif;
+  color: black;
+}
+
+#menu-item-23 {
+  font-size: 1.6rem;
+  margin-right: auto;
+}
+
+.wp-image-268{
+  position: absolute;
+  display: block;
+  top: -112px;
+  left: 0;
+  width: 100% !important;
+  height: 100vh !important;
+    background-size: cover;
+}
+
+footer p {
+  text-align: center;
+}
+
+p{
+  margin: 0;
+}

@@ -11,13 +11,19 @@
 </head>
 
 <body>
+    <div class=wrapper>
 
-    <header>
-        <?php wp_nav_menu(
+        <header>
+            <nav class="nav">
+                <div class="nav__burger-btn">
+                    <div class="nav__burger"></div>
+                </div>
+                <?php wp_nav_menu(
 
-            array(
-                'theme_location' => 'top-nav'
-            )
-        );
-        ?>
-    </header>
+                    array(
+                        'theme_location' => 'top-nav'
+                    )
+                );
+                ?>
+            </nav>
+        </header>
