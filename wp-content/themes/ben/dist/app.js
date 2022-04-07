@@ -7,20 +7,17 @@
   \********************/
 /***/ (() => {
 
-// toggle navbar and keep mobile menu open on refresh
 var navStorage = sessionStorage.getItem("navstate");
 var menuBtn = document.querySelector(".burger-btn");
-var topNav = document.querySelector("#menu-top-nav");
-var listItem = document.querySelectorAll("li");
+var navContainer = document.querySelector(".nav-container");
+var navList = document.querySelector(".nav-list"); // toggle navbar and keep mobile menu open on refresh
 
 var toggleNav = function toggleNav() {
   navStorage = sessionStorage.getItem("navstate");
-  topNav.classList.toggle("open");
-  listItem.forEach(function (item) {
-    item.classList.toggle("show");
-  });
+  navContainer.classList.toggle("open");
+  navList.classList.toggle("open");
 
-  if (topNav.classList.contains("open")) {
+  if (navContainer.classList.contains("open")) {
     sessionStorage.setItem("navstate", "open");
   } else {
     sessionStorage.setItem("navstate", "closed");
@@ -28,10 +25,8 @@ var toggleNav = function toggleNav() {
 };
 
 if (navStorage === "open") {
-  topNav.classList.add("open");
-  listItem.forEach(function (item) {
-    item.classList.add("show");
-  });
+  navContainer.classList.add("open");
+  navList.classList.add("open");
 }
 
 menuBtn.addEventListener("click", function () {
@@ -39,14 +34,12 @@ menuBtn.addEventListener("click", function () {
 }); // Close mobile nav on larger screens
 
 function windowSize() {
-  var list = document.querySelector("#menu-top-nav");
+  var list = document.querySelector(".nav-list");
   widthOutput = window.innerWidth;
 
   if (window.innerWidth > 800) {
-    topNav.classList.remove("open");
-    listItem.forEach(function (item) {
-      item.classList.remove("show");
-    });
+    navContainer.classList.remove("open");
+    navList.classList.remove("open");
     sessionStorage.setItem("navstate", "closed");
   }
 }

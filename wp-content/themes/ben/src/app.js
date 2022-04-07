@@ -1,17 +1,16 @@
-// toggle navbar and keep mobile menu open on refresh
 let navStorage = sessionStorage.getItem("navstate");
 const menuBtn = document.querySelector(".burger-btn");
-const topNav = document.querySelector("#menu-top-nav");
-const listItem = document.querySelectorAll("li");
+const navContainer = document.querySelector(".nav-container");
+const navList = document.querySelector(".nav-list");
 
+
+// toggle navbar and keep mobile menu open on refresh
 const toggleNav = () => {
   navStorage = sessionStorage.getItem("navstate");
-  topNav.classList.toggle("open");
-  listItem.forEach((item) => {
-    item.classList.toggle("show");
-  });
+  navContainer.classList.toggle("open");
+  navList.classList.toggle("open");
 
-  if (topNav.classList.contains("open")) {
+  if (navContainer.classList.contains("open")) {
     sessionStorage.setItem("navstate", "open");
   } else {
     sessionStorage.setItem("navstate", "closed");
@@ -19,10 +18,8 @@ const toggleNav = () => {
 };
 
 if (navStorage === "open") {
-  topNav.classList.add("open");
-  listItem.forEach((item) => {
-    item.classList.add("show");
-  });
+  navContainer.classList.add("open");
+  navList.classList.add("open");
 }
 
 menuBtn.addEventListener("click", () => {
@@ -31,14 +28,12 @@ menuBtn.addEventListener("click", () => {
 
 // Close mobile nav on larger screens
 function windowSize() {
-  const list = document.querySelector("#menu-top-nav");
+  const list = document.querySelector(".nav-list");
 
   widthOutput = window.innerWidth;
   if (window.innerWidth > 800) {
-    topNav.classList.remove("open");
-    listItem.forEach((item) => {
-      item.classList.remove("show");
-    });
+    navContainer.classList.remove("open");
+    navList.classList.remove("open");
     sessionStorage.setItem("navstate", "closed");
   }
 }
