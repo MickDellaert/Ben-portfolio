@@ -1,57 +1,104 @@
 .nav {
   z-index: 10;
-  position: fixed;
-  width: 100%;
-  padding: 40px;
+  position: relative;
 
+ 
 
-  .burger-btn {
-    position: absolute;
-    top: 40px;
-    right: 40px;
-
-    background-color: aqua;
+  .nav-container {
     display: flex;
-    justify-content: flex-end;
+    width: 100%;
+    padding: 40px;
+    top: 0;
+    left: 0;
 
-    .burger-lines {
+    .burger-btn {
+      display: none;
       position: absolute;
-      top: 20px;
-      height: 2px;
       width: 40px;
-      background-color: black;
+      height: 40px;
+      top: 200px;
+      right: 40px;
 
-      &::before {
-        position: absolute;
-        content: "";
-        top: -20px;
-        background-color: inherit;
-        height: 2px;
-        width: 40px;
-      }
+      background-color: aqua;
 
-      &::after {
+      .burger-lines {
         position: absolute;
-        content: "";
         top: 20px;
-        background-color: inherit;
         height: 2px;
         width: 40px;
+        background-color: black;
+
+        &::before {
+          position: absolute;
+          content: "";
+          top: -20px;
+          background-color: inherit;
+          height: 2px;
+          width: 40px;
+        }
+
+        &::after {
+          position: absolute;
+          content: "";
+          top: 20px;
+          background-color: inherit;
+          height: 2px;
+          width: 40px;
+        }
       }
     }
-  }
 
-  #menu-top-nav {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    list-style-type: none;
-    margin: 0px;
+    #menu-top-nav {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      list-style-type: none;
+      margin: 0px;
 
-    li {
-      &:first-child {
-        margin-right: auto;
+      li {
+        &:first-child {
+          margin-right: auto;
+        }
       }
     }
+
+    @media only screen and (max-width: 800px) {
+      #menu-top-nav {
+        height: 0px;
+        flex-direction: column;
+        justify-content: flex-start;
+        // overflow: hidden;
+
+        li {
+          display: none;
+          &:first-child {
+            display: block;
+            margin-right: 0px;
+            height: auto;
+            
+          }
+        }
+      }
+
+      .burger-btn {
+        width: 50px;
+        height: 50px;
+        background-color: blueviolet;
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+
+  
   }
+
+}
+
+.open {
+  height: 300px !important;
+  background-color: aqua;
+}
+
+.show {
+  display: block !important;
 }

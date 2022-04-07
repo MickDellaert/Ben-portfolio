@@ -15,15 +15,46 @@
 
         <header>
             <nav class="nav">
-                <div class="burger-btn">
-                    <div class="burger-lines"></div>
-                </div>
-                <?php wp_nav_menu(
+                <div class="nav-container">
+                    <div class="burger-btn">
+                        <div class="burger-lines"></div>
+                    </div>
 
-                    array(
-                        'theme_location' => 'top-nav'
-                    )
-                );
-                ?>
+
+                    <!-- <?php wp_nav_menu(
+
+                                array(
+                                    'theme_location' => 'top-nav'
+                                )
+                            );
+                            ?> -->
+
+
+                    <?php
+
+                    $items = wp_get_nav_menu_items('top-nav');
+
+                    echo '<h1 class="site-title">' . $items[0]->post_title . '</h1>';
+
+                    ?>
+
+                    <ul class="nav-list">
+
+                        <?php
+                        $counter = 0;
+
+                        foreach ($items as $item) :
+
+                            if ($counter++ == 0) continue; ?>
+
+                            <li class="nav-item"><a class="nav-link" href="<?php echo $item->url; ?>"><?php echo $item->title; ?></a></li>
+
+                        <?php endforeach; ?>
+
+                    </ul>
+
+                </div>
             </nav>
+
+
         </header>

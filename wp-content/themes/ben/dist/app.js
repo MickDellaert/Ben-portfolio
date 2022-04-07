@@ -7,7 +7,59 @@
   \********************/
 /***/ (() => {
 
+// toggle navbar and keep mobile menu open on refresh
+var navStorage = sessionStorage.getItem("navstate");
+var menuBtn = document.querySelector(".burger-btn");
+var topNav = document.querySelector("#menu-top-nav");
+var listItem = document.querySelectorAll("li");
 
+var toggleNav = function toggleNav() {
+  navStorage = sessionStorage.getItem("navstate");
+  topNav.classList.toggle("open");
+  listItem.forEach(function (item) {
+    item.classList.toggle("show");
+  });
+
+  if (topNav.classList.contains("open")) {
+    sessionStorage.setItem("navstate", "open");
+  } else {
+    sessionStorage.setItem("navstate", "closed");
+  }
+};
+
+if (navStorage === "open") {
+  topNav.classList.add("open");
+  listItem.forEach(function (item) {
+    item.classList.add("show");
+  });
+}
+
+menuBtn.addEventListener("click", function () {
+  toggleNav();
+}); // Close mobile nav on larger screens
+
+function windowSize() {
+  var list = document.querySelector("#menu-top-nav");
+  widthOutput = window.innerWidth;
+
+  if (window.innerWidth > 800) {
+    topNav.classList.remove("open");
+    listItem.forEach(function (item) {
+      item.classList.remove("show");
+    });
+    sessionStorage.setItem("navstate", "closed");
+  }
+}
+
+window.onload = windowSize;
+window.onresize = windowSize; // Close mobile menu when clicking a link
+
+var item = document.querySelectorAll("a");
+item.forEach(function (link) {
+  link.addEventListener("click", function () {
+    sessionStorage.setItem("navstate", "closed");
+  });
+});
 
 /***/ }),
 
